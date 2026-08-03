@@ -1,0 +1,212 @@
+# =====================
+# Environment Variables
+# =====================
+.env
+.env.local
+.env.*.local
+.env.*
+!.env.example
+!.env.sample
+
+# =====================
+# Node.js / JavaScript
+# =====================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+*.log
+
+# =====================
+# Backend Specific
+# =====================
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Backend temporary files
+hooked-backend/.env
+hooked-backend/node_modules/
+hooked-backend/package-lock.json
+hooked-backend/*.log
+
+# =====================
+# Frontend Specific
+# =====================
+# React / Vite build outputs
+hooked/dist/
+hooked/build/
+hooked/.vite/
+hooked/node_modules/
+hooked/package-lock.json
+hooked/*.log
+hooked/.env.local
+hooked/.env.development.local
+hooked/.env.test.local
+hooked/.env.production.local
+
+# Frontend temporary files
+.hmr
+*.tsbuildinfo
+
+# =====================
+# IDE / Editor Files
+# =====================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.spotlight*
+*.sublime-*
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# =====================
+# OS Generated Files
+# =====================
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+*.tmp
+*.temp
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# =====================
+# Docker / Containers
+# =====================
+docker-compose.override.yml
+.dockerignore
+*.pid
+docker-compose.*.yml
+!.docker-compose.yml
+*.tar.gz
+*.tar
+docker-data/
+
+# =====================
+# Database / SQL
+# =====================
+*.sqlite
+*.sqlite3
+*.db
+*.pgsql
+*.pgdump
+*.sql.gz
+*.sql.bak
+postgres-data/
+pgdata/
+*.dump
+
+# =====================
+# Testing
+# =====================
+coverage/
+.nyc_output/
+*.test.js
+*.spec.js
+jest/
+test-results/
+playwright-report/
+
+# =====================
+# Build / Distribution
+# =====================
+dist/
+build/
+out/
+*.tgz
+*.tar.gz
+*.zip
+*.rar
+
+# =====================
+# Temporary / Cache Files
+# =====================
+.cache/
+.parcel-cache/
+.turbo/
+.next/
+.nuxt/
+.npm/
+.yarn/
+.pnpm-store/
+.temp/
+.tmp/
+.cache-loader/
+.eslintcache
+.prettiercache
+.stylelintcache
+
+# =====================
+# Security / Secrets
+# =====================
+*.pem
+*.key
+*.crt
+*.csr
+*.p12
+*.pfx
+*.jks
+secrets/
+keys/
+certificates/
+.ssh/
+
+# =====================
+# Misc Development
+# =====================
+*.swp
+*.swo
+*~
+.DS_Store
+*.log
+*.pid
+*.seed
+*.pid.lock
+*.tgz
+.tern-project
+.vagrant
+*.bak
+*.orig
+*.rej
+
+# =====================
+# Project Specific
+# =====================
+# Migration files (keep only the SQL files)
+!hooked-backend/migrations/*.sql
+
+# Temporary database files
+hooked-backend/data/
+hooked-backend/uploads/
+hooked-backend/temp/
+
+# Backup files
+*.backup
+*.old
+*.orig
+
+# Environment-specific overrides
+hooked-backend/.env.production
+hooked-backend/.env.staging
+hooked/.env.production
+hooked/.env.staging
+
+# Service worker / PWA
+sw.js
+sw.js.map
+workbox-*.js

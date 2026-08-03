@@ -1,0 +1,62 @@
+.product-page{ padding-top:44px; }
+.product-layout{ display:grid; grid-template-columns:1fr 1fr; gap:60px; margin-bottom:80px; }
+.product-thumb-lg{
+  aspect-ratio:1/1; border-radius:26px; display:flex; align-items:center; justify-content:center;
+  position:relative; border:1px solid var(--line);
+}
+.product-thumb-lg .badge{
+  position:absolute; top:20px; left:20px; background:var(--ink); color:var(--cream);
+  font-family:'DM Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.05em;
+  padding:6px 12px; border-radius:20px;
+}
+.product-thumb-lg .badge.new{ background:var(--sage-dark); }
+
+.product-info-panel h1{ font-size:34px; margin-bottom:10px; color:var(--ink); }
+.rating-row{ display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+.rating-row .stars{ color:var(--mustard); letter-spacing:2px; }
+.reviews-count{ font-size:13px; color:#7a7161; }
+.price-lg{ font-family:'DM Mono',monospace; font-size:26px; color:var(--cherry-dark); margin-bottom:22px; }
+.product-desc{ color:#4a4238; font-size:15px; margin-bottom:28px; max-width:480px; }
+
+.option-block{ margin-bottom:24px; }
+.option-label{ display:block; margin-bottom:10px; color:var(--cherry-dark); }
+.swatch-row{ display:flex; gap:10px; flex-wrap:wrap; }
+.swatch{
+  padding:9px 16px; border-radius:24px; border:1.5px solid var(--line); background:var(--paper);
+  font-size:13px; cursor:pointer; transition:all .15s ease;
+}
+.swatch.active{ border-color:var(--ink); background:var(--ink); color:var(--cream); }
+.qty-row{
+  display:inline-flex; align-items:center; gap:0; border:1.5px solid var(--line); border-radius:30px; overflow:hidden;
+}
+.qty-row button{
+  width:40px; height:40px; background:var(--paper); border:none; font-size:18px; cursor:pointer; color:var(--ink);
+}
+.qty-row span{ width:40px; text-align:center; font-family:'DM Mono',monospace; }
+
+.add-row{ margin-bottom:28px; }
+.btn-lg{ width:100%; justify-content:center; padding:17px 28px; font-size:15.5px; }
+
+.assurances{
+  display:flex; flex-direction:column; gap:12px; padding:20px 0; border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line); margin-bottom:26px;
+}
+.assurances div{ display:flex; align-items:center; gap:10px; font-size:13.5px; color:#4a4238; }
+.assurances svg{ width:18px; height:18px; color:var(--cherry); flex-shrink:0; }
+
+.tabs{ display:flex; gap:10px; margin-bottom:18px; }
+.tabs button{
+  padding:10px 18px; border-radius:24px; border:1.5px solid var(--line); background:var(--paper);
+  font-size:13px; cursor:pointer; color:var(--ink);
+}
+.tabs button.active{ background:var(--ink); color:var(--cream); border-color:var(--ink); }
+.detail-list{ list-style:disc; padding-left:20px; color:#4a4238; font-size:14px; display:flex; flex-direction:column; gap:6px; }
+.custom-note{ font-size:14px; color:#4a4238; }
+
+.related-block{ padding-top:50px; border-top:1px solid var(--line); }
+.prod-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:26px; }
+
+@media(max-width:980px){
+  .product-layout{ grid-template-columns:1fr; gap:36px; }
+  .prod-grid{ grid-template-columns:repeat(2,1fr); }
+}

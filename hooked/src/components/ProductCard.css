@@ -1,0 +1,27 @@
+.prod-card{
+  display:block;
+  background:var(--paper); border-radius:22px; border:1px solid var(--line);
+  overflow:hidden; position:relative; transition:transform .25s ease, box-shadow .25s ease;
+}
+.prod-card:hover{ transform:translateY(-8px) rotate(-0.4deg); box-shadow:0 20px 34px rgba(43,36,28,.1); }
+.prod-thumb{
+  aspect-ratio:1/1; display:flex; align-items:center; justify-content:center;
+  position:relative; overflow:hidden;
+}
+.badge{
+  position:absolute; top:14px; left:14px; background:var(--ink); color:var(--cream);
+  font-family:'DM Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:.05em;
+  padding:5px 10px; border-radius:20px; z-index:2;
+}
+.badge.new{ background:var(--sage-dark); }
+.fav{
+  position:absolute; top:12px; right:12px; width:34px; height:34px; border-radius:50%;
+  background:rgba(255,253,248,.9); display:flex; align-items:center; justify-content:center;
+  border:1px solid var(--line); cursor:pointer; color:var(--cherry); z-index:2;
+}
+.fav svg{ width:16px; height:16px; }
+.prod-info{ padding:18px 20px 22px; }
+.prod-info h3{ font-size:16px; font-weight:600; font-family:'Poppins',sans-serif; margin-bottom:4px; color:var(--ink); }
+.prod-info .meta{ display:flex; justify-content:space-between; align-items:center; margin-top:8px; }
+.price{ font-family:'DM Mono',monospace; font-size:14px; color:var(--cherry-dark); }
+.stars{ font-size:11px; color:var(--mustard); letter-spacing:1px; }

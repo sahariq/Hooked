@@ -1,0 +1,40 @@
+.topbar{
+  background:var(--cherry); color:#fff; text-align:center;
+  padding:9px 12px; font-family:'DM Mono',monospace; font-size:12.5px; letter-spacing:0.04em;
+  display:flex; align-items:center; justify-content:center; gap:8px;
+}
+.currency-pill{
+  background:var(--cream-2); border:1px solid var(--line); border-radius:20px; padding:6px 12px;
+  font-family:'DM Mono',monospace; font-size:11px; color:var(--ink); cursor:pointer;
+}
+.currency-pill:hover{ border-color:var(--cherry); }
+.nav{ background:var(--cream); position:sticky; top:0; z-index:50; border-bottom:1px solid var(--line); }
+.navwrap{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 32px;
+}
+.logo{
+  font-family:var(--script); font-weight:700; font-size:42px;
+  display:flex; align-items:center; gap:4px; color:var(--ink); line-height:1;
+}
+.logo .dot{ color:var(--cherry); font-family:'Poppins',sans-serif; font-size:26px; }
+.logo .bow{ font-size:20px; margin-left:2px; transform:translateY(-2px) rotate(8deg); display:inline-block; }
+.navlinks{ display:flex; gap:34px; font-size:14.5px; font-weight:500; }
+.navlinks a{ position:relative; padding-bottom:4px; color:var(--ink); }
+.navlinks a::after{
+  content:""; position:absolute; left:0; bottom:0; height:2px; width:0%;
+  background:var(--cherry); transition:width .25s ease;
+}
+.navlinks a:hover::after, .navlinks a.active::after{ width:100%; }
+.navicons{ display:flex; gap:20px; align-items:center; }
+.navicons a{ color:var(--ink); display:flex; }
+.cart-link{ position:relative; }
+.cart-badge{
+  background:var(--cherry); color:var(--cream); font-family:'DM Mono',monospace;
+  font-size:10px; border-radius:50%; width:16px; height:16px; display:inline-flex;
+  align-items:center; justify-content:center; position:absolute; top:-9px; right:-10px;
+}
+
+@media(max-width:980px){
+  .navlinks{ display:none; }
+}
