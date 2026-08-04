@@ -31,6 +31,16 @@ app.get('/api/setup', async (req, res) => {
   }
 });
 
+// Add this temporary route
+app.get('/api/debug', (req, res) => {
+  res.json({
+    envLoaded: !!process.env.DATABASE_URL,
+    databaseUrl: process.env.DATABASE_URL ? 'Set' : 'Not set',
+    nodeEnv: process.env.NODE_ENV || 'Not set',
+    adminEmail: process.env.ADMIN_EMAIL || 'Not set'
+  });
+});
+
 app.use(cors({
   origin: process.env.CORS_ORIGIN?.split(',') || 'http://localhost:5173',
   credentials: true,
