@@ -17,6 +17,20 @@ dotenv.config();
 
 const app = express();
 
+app.get('/api/setup', async (req, res) => {
+  try {
+    const { exec } = await import('child_process');
+    exec('npm run migrate && npm run seed && npm run seed:currency', (error, stdout, stderr) => {
+      if (error) {
+        return res.status(500).send(`Error: ${stderr}`);
+      }
+      res.send(`Success: ${stdout}`);
+    });
+  } catch (err) {
+    res.status(500).send(`Error: ${err.message}`);
+  }
+});
+
 app.use(cors({
   origin: process.env.CORS_ORIGIN?.split(',') || 'http://localhost:5173',
   credentials: true,
