@@ -15,7 +15,7 @@ export default function AdminLayout() {
   return (
     <div className="admin-shell">
       <aside className="admin-sidebar">
-        <Link to="/" className="admin-logo">hooked<span className="bow">🎀</span></Link>
+        <Link to="/" className="logo"><img src="./src/assets/logo-light.png" alt="Hooked Logo" /></Link>
         <nav>
           <NavLink to="/admin" end>Dashboard</NavLink>
           <NavLink to="/admin/orders">Orders</NavLink>

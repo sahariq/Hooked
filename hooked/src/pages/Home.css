@@ -35,7 +35,7 @@
   box-shadow:0 8px 20px rgba(43,36,28,.08); transform:rotate(-4deg);
 }
 .tag-1{ top:20px; left:0px; }
-.tag-2{ bottom:110px; left:40px; transform:rotate(3deg); }
+.tag-2{ bottom:110px; left:20px; transform:rotate(3deg); }
 
 .stitch-row{
   display:flex; justify-content:space-between; align-items:center;
@@ -130,4 +130,35 @@
   .prod-grid{ grid-template-columns:1fr 1fr; gap:14px; }
   .cats{ grid-template-columns:1fr 1fr; }
   .news-form{ flex-direction:column; }
+}
+/* ===== STITCH ROW DIVIDER ===== */
+.stitch-row-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 0;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.divider-line {
+  flex: 1;
+  max-width: 100px;
+  height: 2px;
+  background: var(--line);
+  position: relative;
+}
+
+.divider-line::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cherry);
+  opacity: 0.5;
 }

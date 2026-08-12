@@ -17,7 +17,7 @@ export default function Navbar() {
       </div>
       <nav className="nav">
         <div className="wrap navwrap">
-          <Link to="/" className="logo">hooked<span className="bow">🎀</span></Link>
+          <Link to="/" className="logo"><img src="./src/assets/logo.png" alt="Hooked Logo" /></Link>
           <div className="navlinks">
             <NavLink to="/shop" className={({isActive}) => isActive ? 'active' : ''}>Shop</NavLink>
             <NavLink to="/custom" className={({isActive}) => isActive ? 'active' : ''}>Custom Orders</NavLink>

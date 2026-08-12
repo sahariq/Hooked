@@ -29,7 +29,7 @@ export default function AdminLogin() {
   return (
     <div className="admin-login-shell">
       <div className="admin-login-card">
-        <div className="admin-logo">hooked<span className="bow">🎀</span></div>
+        <div className="logo"><img src="./src/assets/logo.png" alt="Hooked Logo" /></div>
         <p className="sub">Admin dashboard sign in</p>
         <form onSubmit={handleSubmit}>
           <input name="email" type="email" placeholder="admin@hookedcrochet.com" required />

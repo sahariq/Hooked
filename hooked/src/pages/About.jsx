@@ -60,7 +60,7 @@ export default function About() {
             <span className="mono" style={{ color: 'var(--cherry-dark)' }}>♡ say hi ♡</span>
             <h2>questions before you order?</h2>
             <p>Reach out any time — I read every message myself.</p>
-            <a href="mailto:hello@hookedcrochet.com" className="btn btn-solid">Email hello@hookedcrochet.com</a>
+            <a href="mailto:sahariqbalmalik05@gmail.com" className="btn btn-solid">Email Me!</a>
           </div>
         </div>
       </section>
