@@ -1,27 +1,128 @@
 .prod-card{
   display:block;
   background:var(--paper); border-radius:22px; border:1px solid var(--line);
-  overflow:hidden; position:relative; transition:transform .25s ease, box-shadow .25s ease;
+  position:relative;
+  transform:rotate(var(--tilt, 0deg));
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease;
+  box-shadow:0 10px 20px -16px rgba(43,36,28,.5);
 }
-.prod-card:hover{ transform:translateY(-8px) rotate(-0.4deg); box-shadow:0 20px 34px rgba(43,36,28,.1); }
+.prod-card:hover,
+.prod-card:focus-visible{
+  transform:translateY(-10px) rotate(0deg);
+  box-shadow:0 24px 34px -16px rgba(43,36,28,.28);
+}
+.prod-card:focus-visible{ outline:3px solid var(--ink); outline-offset:4px; }
+
+/* washi tape holding the card to the page */
+.prod-tape{
+  position:absolute; top:-10px; left:50%; width:78px; height:22px; z-index:3;
+  transform:translateX(-50%) rotate(-3deg);
+  border-radius:2px;
+  box-shadow:0 1px 2px rgba(43,36,28,.12);
+  transition:transform .3s ease;
+}
+.prod-card:hover .prod-tape{ transform:translateX(-50%) rotate(2deg) scale(1.06); }
+.tape-pink  { background:rgba(232,130,160,.6); }
+.tape-blue  { background:rgba(140,185,230,.65); }
+.tape-butter{ background:rgba(240,200,100,.7); }
+.tape-sage  { background:rgba(150,185,150,.65); }
+
 .prod-thumb{
   aspect-ratio:1/1; display:flex; align-items:center; justify-content:center;
-  position:relative; overflow:hidden;
+  position:relative; overflow:hidden; border-radius:21px 21px 0 0;
 }
+/* dashed "stitching" inside the photo area */
+.prod-thumb::before{
+  content:''; position:absolute; inset:10px; border-radius:15px; pointer-events:none;
+  border:2px dashed rgba(43,36,28,.16);
+}
+
+/* icon sits on a little dotted-edge doily */
+.prod-art{
+  width:68%; aspect-ratio:1; border-radius:50%;
+  display:grid; place-items:center;
+  background:rgba(255,255,255,.55);
+  border:2px dotted rgba(43,36,28,.28);
+  box-shadow:0 0 0 7px rgba(255,255,255,.28);
+  transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+}
+.prod-card:hover .prod-art,
+.prod-card:focus-visible .prod-art{ transform:rotate(-8deg) scale(1.07); }
+
+/* badge = sticker */
 .badge{
   position:absolute; top:14px; left:14px; background:var(--ink); color:var(--cream);
   font-family:'DM Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:.05em;
   padding:5px 10px; border-radius:20px; z-index:2;
 }
 .badge.new{ background:var(--sage-dark); }
+.prod-card .badge{
+  transform:rotate(-6deg);
+  outline:1.5px dashed rgba(255,255,255,.75); outline-offset:-3px;
+  box-shadow:0 2px 6px rgba(43,36,28,.18);
+}
+
 .fav{
   position:absolute; top:12px; right:12px; width:34px; height:34px; border-radius:50%;
   background:rgba(255,253,248,.9); display:flex; align-items:center; justify-content:center;
   border:1px solid var(--line); cursor:pointer; color:var(--cherry); z-index:2;
+  transition:transform .2s ease, background .2s ease;
 }
 .fav svg{ width:16px; height:16px; }
+.fav:hover{ transform:scale(1.12); }
+.fav.is-saved{ background:#fff; animation:heart-pop .45s ease; }
+@keyframes heart-pop{
+  0%{ transform:scale(1); } 35%{ transform:scale(1.4) rotate(-8deg); } 70%{ transform:scale(.92); } 100%{ transform:scale(1); }
+}
+
+/* stock stickers */
+.prod-sticker{
+  position:absolute; z-index:2; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.04em;
+  padding:5px 11px; border-radius:20px; box-shadow:0 2px 6px rgba(43,36,28,.18);
+}
+.prod-sticker.low{ left:14px; bottom:14px; background:var(--mustard); color:var(--ink); transform:rotate(3deg); }
+.prod-sticker.sold{
+  top:50%; left:50%; transform:translate(-50%,-50%) rotate(-12deg);
+  background:var(--ink); color:var(--cream); font-size:14px; padding:8px 18px; text-transform:uppercase;
+}
+.prod-card.is-soldout .prod-art{ opacity:.45; filter:saturate(.4); }
+
+/* slide-up hint on hover */
+.prod-peek{
+  position:absolute; left:0; right:0; bottom:0; z-index:1; text-align:center;
+  padding:9px 0; background:var(--ink); color:var(--cream);
+  font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.05em;
+  transform:translateY(100%); transition:transform .3s ease;
+}
+.prod-card:hover .prod-peek,
+.prod-card:focus-visible .prod-peek{ transform:translateY(0); }
+
 .prod-info{ padding:18px 20px 22px; }
-.prod-info h3{ font-size:16px; font-weight:600; font-family:'Poppins',sans-serif; margin-bottom:4px; color:var(--ink); }
-.prod-info .meta{ display:flex; justify-content:space-between; align-items:center; margin-top:8px; }
-.price{ font-family:'DM Mono',monospace; font-size:14px; color:var(--cherry-dark); }
+.prod-info h3{ font-size:17px; font-weight:600; margin-bottom:4px; color:var(--ink); line-height:1.25; }
+
+/* colour swatches */
+.prod-dots{ display:flex; align-items:center; gap:5px; margin-top:8px; }
+.prod-dots span{
+  width:13px; height:13px; border-radius:50%;
+  border:1.5px solid #fff; box-shadow:0 0 0 1px rgba(43,36,28,.22);
+}
+.prod-dots em{ font-family:'DM Mono',monospace; font-size:10px; font-style:normal; color:var(--ink); opacity:.6; margin-left:2px; }
+
+.prod-info .meta{ display:flex; justify-content:space-between; align-items:center; margin-top:12px; }
+/* price on a little hang-tag */
+.price{
+  font-family:'DM Mono',monospace; font-size:14px; color:var(--cherry-dark);
+  background:rgba(232,130,160,.14); padding:3px 11px; border-radius:20px;
+}
 .stars{ font-size:11px; color:var(--mustard); letter-spacing:1px; }
+.stars small{ font-size:10px; color:var(--ink); opacity:.55; letter-spacing:0; margin-left:4px; }
+
+/* home page only: alternate cards sit a bit lower for an uneven, hand-placed rhythm */
+@media (min-width:961px){
+  .shop-preview .prod-grid > :nth-child(even){ margin-top:26px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .prod-card, .prod-tape, .prod-art, .prod-peek, .fav{ transition:none; }
+  .fav.is-saved{ animation:none; }
+}

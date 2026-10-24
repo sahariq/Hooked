@@ -1,0 +1,195 @@
+.cat-tiles {
+  list-style: none;
+  margin: 0;
+  padding: 14px 0 34px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+/* every second tile sits lower for a playful, uneven rhythm */
+.cat-tiles > li:nth-child(even) {
+  margin-top: 30px;
+}
+
+.cat-tile {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 36px 22px 26px;
+  border-radius: 28px;
+  background: var(--c, #f6d9e4);
+  color: var(--ink, #4a3540);
+  text-decoration: none;
+  transform: rotate(var(--tilt, 0deg));
+  box-shadow: 0 12px 24px -16px rgba(74, 53, 64, 0.55);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+/* dashed "stitching" just inside the edge */
+.cat-tile::before {
+  content: '';
+  position: absolute;
+  inset: 9px;
+  border-radius: 20px;
+  border: 2px dashed rgba(74, 53, 64, 0.3);
+  pointer-events: none;
+}
+/* soft light blob in the corner for depth */
+.cat-tile::after {
+  content: '';
+  position: absolute;
+  top: -64px;
+  right: -64px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.38);
+  z-index: -1;
+}
+
+.cat-tile:hover,
+.cat-tile:focus-visible {
+  transform: rotate(0deg) translateY(-9px) scale(1.02);
+  box-shadow: 0 24px 34px -18px rgba(74, 53, 64, 0.6);
+}
+.cat-tile:focus-visible {
+  outline: 3px solid var(--ink, #4a3540);
+  outline-offset: 4px;
+}
+
+.cat-tile-num {
+  position: absolute;
+  top: 22px;
+  left: 26px;
+  font-family: var(--font-mono, ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  opacity: 0.55;
+}
+
+.cat-tile-art {
+  width: 118px;
+  height: 118px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.4);
+}
+.cat-tile:hover .cat-tile-art,
+.cat-tile:focus-visible .cat-tile-art {
+  animation: cat-wiggle 0.7s ease-in-out;
+}
+
+.cat-tile h3 {
+  margin: 24px 0 8px;
+  font-size: 1.5rem;
+  line-height: 1.15;
+}
+.cat-tile p {
+  margin: 0;
+  max-width: 24ch;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  opacity: 0.82;
+}
+
+.cat-tile-go {
+  margin-top: auto;
+  padding: 7px 16px;
+  border: 1.5px solid var(--ink, #4a3540);
+  border-radius: 999px;
+  font-family: var(--font-mono, ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+/* keeps spacing between the blurb and the pill, whatever the text length */
+.cat-tile p + .cat-tile-go {
+  margin-top: auto;
+}
+.cat-tile > p {
+  margin-bottom: 22px;
+}
+.cat-tile-arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+.cat-tile:hover .cat-tile-go,
+.cat-tile:focus-visible .cat-tile-go {
+  background: var(--ink, #4a3540);
+  color: var(--cream, #fff7f2);
+}
+.cat-tile:hover .cat-tile-arrow,
+.cat-tile:focus-visible .cat-tile-arrow {
+  transform: translateX(4px);
+}
+
+@keyframes cat-wiggle {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-9deg) scale(1.06); }
+  60% { transform: rotate(7deg) scale(1.06); }
+}
+
+/* loading skeleton + error */
+.cat-tile-skeleton {
+  min-height: 330px;
+  border-radius: 28px;
+  background: linear-gradient(100deg, #f4e6e1 30%, #fbf1ed 50%, #f4e6e1 70%);
+  background-size: 200% 100%;
+  animation: cat-shimmer 1.4s linear infinite;
+}
+@keyframes cat-shimmer {
+  to { background-position: -200% 0; }
+}
+.cat-tiles-msg {
+  text-align: center;
+  padding: 24px 0;
+}
+
+@media (max-width: 960px) {
+  .cat-tiles {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .cat-tiles > li:nth-child(even) {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .cat-tiles {
+    gap: 14px;
+  }
+  .cat-tile {
+    padding: 32px 14px 20px;
+  }
+  .cat-tile-art {
+    width: 88px;
+    height: 88px;
+  }
+  .cat-tile h3 {
+    font-size: 1.2rem;
+  }
+  .cat-tile p {
+    font-size: 0.82rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cat-tile,
+  .cat-tile-arrow,
+  .cat-tile-go {
+    transition: none;
+  }
+  .cat-tile:hover .cat-tile-art,
+  .cat-tile:focus-visible .cat-tile-art,
+  .cat-tile-skeleton {
+    animation: none;
+  }
+}

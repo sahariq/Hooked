@@ -36,7 +36,7 @@ export default function CustomOrders() {
             <CrochetHookIcon size={32} color="var(--cherry)" />
             <span className="mono">♡ custom orders ♡</span>
             <h1>let's design something<br /><span className="accent">just for you.</span></h1>
-            <p>From a keychain of your pet to a whole matching set for a wedding party — if you can describe it, there's a good chance it can be hooked.</p>
+            <p>From a keychain of your pet to a whole matching set for a wedding party - if you can describe it, there's a good chance it can be hooked.</p>
           </div>
         </div>
       </section>
@@ -74,7 +74,7 @@ export default function CustomOrders() {
             <div className="custom-form-side">
               <span className="mono" style={{ color: 'var(--cherry-dark)' }}>♡ request a quote ♡</span>
               <h2>start your order</h2>
-              <p>Fill this out and I'll get back to you with a quote — no payment needed yet.</p>
+              <p>Fill this out and I'll get back to you with a quote - no payment needed yet.</p>
               <ul className="custom-notes">
                 <li>Most custom pieces run $20–$80 depending on size &amp; detail</li>
                 <li>Rush orders may be available for an added fee</li>
@@ -86,7 +86,7 @@ export default function CustomOrders() {
               {sent ? (
                 <div className="form-success">
                   <h3>Got it! 🧶</h3>
-                  <p>Thanks for reaching out — I'll email you a quote within 2 business days.</p>
+                  <p>Thanks for reaching out - I'll email you a quote within 2 business days.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit}>
@@ -111,7 +111,7 @@ export default function CustomOrders() {
                   </label>
                   <label>
                     <span>Tell me more</span>
-                    <textarea name="message" rows="4" required placeholder="Colors, size, reference photos, deadline — anything helps!" />
+                    <textarea name="message" rows="4" required placeholder="Colors, size, reference photos, deadline - anything helps!" />
                   </label>
                   {error && <p className="checkout-error">{error}</p>}
                   <button type="submit" className="btn btn-cherry btn-lg" disabled={submitting}>

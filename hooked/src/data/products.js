@@ -31,7 +31,7 @@ export const products = [
     rating: 5,
     reviews: 64,
     colors: ['Sage Mix', 'Sunset Mix', 'Cream Mix'],
-    description: 'Four classic granny-square coasters in a coordinated colorway, backed with a light cotton lining to protect your table. Sold as a set — mix and match colors on request.',
+    description: 'Four classic granny-square coasters in a coordinated colorway, backed with a light cotton lining to protect your table. Sold as a set - mix and match colors on request.',
     details: ['4.25 in (11 cm) diameter, set of 4', '100% cotton yarn', 'Machine washable, lay flat to dry'],
   },
   {
@@ -46,7 +46,7 @@ export const products = [
     reviews: 41,
     colors: ['Rust & Cream', 'Grey & Cream'],
     description: "A pocket-sized fox with a fluffy tail and embroidered face, safety-tested and firmly stuffed. Sits upright on a shelf or curls up in a bag.",
-    details: ['Approx. 5 in (13 cm) tall', 'Safety eyes, embroidered nose', 'Hand wash only', 'Made to order — 2 week lead time'],
+    details: ['Approx. 5 in (13 cm) tall', 'Safety eyes, embroidered nose', 'Hand wash only', 'Made to order - 2 week lead time'],
   },
   {
     id: 'bunny-softie',
@@ -60,7 +60,7 @@ export const products = [
     reviews: 19,
     colors: ['Oat', 'Dusty Pink', 'Sky Blue'],
     description: 'A long-eared bunny in soft cotton yarn, generously stuffed for cuddling. A sweet baby gift or a keeper for kids (and adults) of all ages.',
-    details: ['Approx. 10 in (25 cm) tall', 'Hypoallergenic polyester fill', 'Surface wash only', 'Made to order — 2–3 week lead time'],
+    details: ['Approx. 10 in (25 cm) tall', 'Hypoallergenic polyester fill', 'Surface wash only', 'Made to order - 2–3 week lead time'],
   },
   {
     id: 'mini-flower-keychain',
@@ -158,7 +158,7 @@ export const products = [
     reviews: 12,
     colors: ['Grey Tabby', 'Cream'],
     description: 'A curled-up cat with a stitched striped tail and sleepy embroidered eyes, weighted lightly at the base so it sits just right.',
-    details: ['Approx. 4 in (10 cm) tall, 6 in (15 cm) long', 'Safety-tested embroidery, no small parts', 'Made to order — 2 week lead time'],
+    details: ['Approx. 4 in (10 cm) tall, 6 in (15 cm) long', 'Safety-tested embroidery, no small parts', 'Made to order - 2 week lead time'],
   },
   {
     id: 'elephant-softie',
@@ -172,7 +172,7 @@ export const products = [
     reviews: 9,
     colors: ['Grey', 'Dusty Blue'],
     description: 'A round-bellied elephant with floppy ears and a curled trunk, stitched in a dense weave so it holds its shape through years of hugs.',
-    details: ['Approx. 9 in (23 cm) tall', 'Hypoallergenic polyester fill', 'Surface wash only', 'Made to order — 2–3 week lead time'],
+    details: ['Approx. 9 in (23 cm) tall', 'Hypoallergenic polyester fill', 'Surface wash only', 'Made to order - 2–3 week lead time'],
   },
 ];
 

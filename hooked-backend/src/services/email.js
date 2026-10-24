@@ -50,7 +50,7 @@ export async function sendOrderConfirmationEmail(order, items) {
       </p>
     </div>`;
 
-  return sendEmail({ to: order.customer_email, subject: `Order confirmed — ${order.order_number}`, html });
+  return sendEmail({ to: order.customer_email, subject: `Order confirmed - ${order.order_number}`, html });
 }
 
 export async function sendCustomOrderAckEmail(request) {
@@ -60,5 +60,5 @@ export async function sendCustomOrderAckEmail(request) {
       <p>Thanks for reaching out about a custom piece. We'll review your request and follow up with a quote within 2 business days.</p>
       <p style="color:#7a7161; font-size: 13px;">Your note: "${request.message}"</p>
     </div>`;
-  return sendEmail({ to: request.email, subject: 'We got your custom order request — Hooked', html });
+  return sendEmail({ to: request.email, subject: 'We got your custom order request - Hooked', html });
 }

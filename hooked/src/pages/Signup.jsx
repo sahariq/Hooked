@@ -38,7 +38,7 @@ export default function Signup() {
         <div className="auth-card">
           <YarnBallIcon size={30} color="var(--cherry)" />
           <h1>Create your account</h1>
-          <p className="auth-sub">Save your details and track orders — no yarn needed.</p>
+          <p className="auth-sub">Save your details and track orders - no yarn needed.</p>
           <form onSubmit={handleSubmit}>
             <input name="fullName" placeholder="Full name" required />
             <input name="email" type="email" placeholder="Email address" required />

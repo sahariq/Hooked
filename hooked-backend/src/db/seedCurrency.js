@@ -1,7 +1,7 @@
 import { pool } from './pool.js';
 
 // Fixed exchange rates: how many PKR equal 1 unit of the currency.
-// You (or the admin dashboard, once built) should update these periodically —
+// You (or the admin dashboard, once built) should update these periodically -
 // they are NOT pulled live.
 const currencies = [
   { code: 'PKR', name: 'Pakistani Rupee', symbol: 'Rs', rate: 1 },

@@ -56,7 +56,7 @@ export default function AdminCustomOrders() {
             ) : requests.map((r) => (
               <tr key={r.id}>
                 <td>{r.name}<br /><span style={{ color: '#7a7161', fontSize: 12 }}>{r.email}</span></td>
-                <td style={{ textTransform: 'capitalize' }}>{r.category || '—'}</td>
+                <td style={{ textTransform: 'capitalize' }}>{r.category || '-'}</td>
                 <td style={{ maxWidth: 320 }}>{r.message}</td>
                 <td>{new Date(r.created_at).toLocaleDateString()}</td>
                 <td>

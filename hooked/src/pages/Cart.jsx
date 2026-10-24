@@ -71,7 +71,7 @@ export default function Cart() {
               <svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" strokeWidth="1.5"><path d="M3 6h2l1.6 10.6A2 2 0 0 0 8.6 18h9.8a2 2 0 0 0 2-1.7L22 8H6"/><circle cx="9" cy="21" r="1"/><circle cx="18" cy="21" r="1"/></svg>
             </div>
             <h2>Your cart is empty</h2>
-            <p>Nothing here yet — let's find you something handmade.</p>
+            <p>Nothing here yet - let's find you something handmade.</p>
             <Link to="/shop" className="btn btn-solid">Browse the Shop →</Link>
           </div>
         </div>
@@ -153,10 +153,10 @@ export default function Cart() {
                 </div>
 
                 <textarea name="notes" rows="2" placeholder="Order notes (optional)" />
-                {!isAuthed && <p className="guest-note">Checking out as guest — <Link to="/login">sign in</Link> to save this order to your account.</p>}
+                {!isAuthed && <p className="guest-note">Checking out as guest - <Link to="/login">sign in</Link> to save this order to your account.</p>}
                 {error && <p className="checkout-error">{error}</p>}
                 <button type="submit" className="btn btn-solid btn-lg" disabled={submitting}>
-                  {submitting ? 'Placing order…' : `Place Order — ${currency?.symbol || 'Rs'} ${convert(totalPkr).toFixed(2)}`}
+                  {submitting ? 'Placing order…' : `Place Order - ${currency?.symbol || 'Rs'} ${convert(totalPkr).toFixed(2)}`}
                 </button>
               </form>
             )}

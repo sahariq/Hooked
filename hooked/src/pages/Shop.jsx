@@ -178,7 +178,7 @@ export default function Shop() {
               transition={{ duration: 0.3 }}
             >
               <p style={{ color: '#7a7161', textAlign: 'center', padding: '60px 0' }}>
-                No pieces here yet — check back soon!
+                No pieces here yet - check back soon!
               </p>
             </motion.div>
           ) : (

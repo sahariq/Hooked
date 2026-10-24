@@ -58,7 +58,7 @@ export default function AdminOrders() {
               <tr key={o.id}>
                 <td>{o.orderNumber}</td>
                 <td>{o.customerName}<br /><span style={{ color: '#7a7161', fontSize: 12 }}>{o.customerEmail}</span></td>
-                <td>{o.items?.length ?? '—'}</td>
+                <td>{o.items?.length ?? '-'}</td>
                 <td>${o.total.toFixed(2)}</td>
                 <td>{new Date(o.createdAt).toLocaleDateString()}</td>
                 <td>

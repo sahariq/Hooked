@@ -46,7 +46,7 @@ export default function OrderConfirmation() {
 
           {needsPayment ? (
             <div className="pay-block">
-              <p>Your order is reserved — complete payment to confirm it.</p>
+              <p>Your order is reserved - complete payment to confirm it.</p>
               <button className="btn btn-solid btn-lg" onClick={handleMockPay} disabled={paying}>
                 {paying ? 'Processing…' : `Pay ${order.displayCurrency} ${order.displayTotal?.toFixed(2)} via Safepay →`}
               </button>
@@ -56,7 +56,7 @@ export default function OrderConfirmation() {
             <p className="confirm-status">
               {order.paymentMethod === 'cod'
                 ? "We'll collect payment when your order is delivered."
-                : 'Payment received — thank you!'}
+                : 'Payment received - thank you!'}
             </p>
           )}
 

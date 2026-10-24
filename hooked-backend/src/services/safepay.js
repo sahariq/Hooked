@@ -1,7 +1,7 @@
 import crypto from 'crypto';
 
 // Thin wrapper around Safepay's Checkout API.
-// Docs: https://docs.safepay.pk  (Pakistani payment gateway — settles to a PKR bank account,
+// Docs: https://docs.safepay.pk  (Pakistani payment gateway - settles to a PKR bank account,
 // accepts local + international Visa/Mastercard).
 //
 // You need a real Safepay merchant account to go live: set SAFEPAY_API_KEY, SAFEPAY_SECRET,
@@ -18,7 +18,7 @@ export async function createCheckoutSession(order) {
 
   if (!apiKey) {
     // Mock mode: no Safepay credentials configured yet.
-    console.warn('[safepay] No SAFEPAY_API_KEY set — returning a mock checkout session.');
+    console.warn('[safepay] No SAFEPAY_API_KEY set - returning a mock checkout session.');
     return {
       mock: true,
       checkoutUrl: `${process.env.CORS_ORIGIN?.split(',')[0] || 'http://localhost:5173'}/order/${order.id}/mock-pay`,
@@ -61,7 +61,7 @@ export async function createCheckoutSession(order) {
 export function verifyWebhookSignature(rawBody, signatureHeader) {
   const secret = process.env.SAFEPAY_WEBHOOK_SECRET;
   if (!secret) {
-    console.warn('[safepay] No SAFEPAY_WEBHOOK_SECRET set — skipping signature verification (dev only).');
+    console.warn('[safepay] No SAFEPAY_WEBHOOK_SECRET set - skipping signature verification (dev only).');
     return true;
   }
   const expected = crypto.createHmac('sha256', secret).update(rawBody).digest('hex');

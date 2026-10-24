@@ -33,7 +33,7 @@ export function YarnBallIcon({ size = 20, color = 'currentColor', className }) {
   );
 }
 
-// A single-stitch "V" mark — the basic crochet stitch symbol
+// A single-stitch "V" mark - the basic crochet stitch symbol
 export function StitchMark({ size = 16, color = 'currentColor', className }) {
   return (
     <svg width={size} height={size} viewBox="0 0 16 16" fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -42,7 +42,7 @@ export function StitchMark({ size = 16, color = 'currentColor', className }) {
   );
 }
 
-// A repeating row of stitch marks — used as a section divider instead of a plain line
+// A repeating row of stitch marks - used as a section divider instead of a plain line
 export function StitchRow({ count = 24, color = 'var(--cherry)', className, style }) {
   return (
     <div
@@ -57,7 +57,7 @@ export function StitchRow({ count = 24, color = 'var(--cherry)', className, styl
   );
 }
 
-// A dashed "cut here" line with scissors at one end — used above footers / as a section cap
+// A dashed "cut here" line with scissors at one end - used above footers / as a section cap
 export function SnipDivider({ color = 'var(--cherry)', className }) {
   return (
     <div className={className} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '4px 0' }} aria-hidden="true">

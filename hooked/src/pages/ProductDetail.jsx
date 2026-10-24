@@ -91,7 +91,7 @@ export default function ProductDetail() {
 
             <div className="add-row">
               <button className="btn btn-solid btn-lg" onClick={() => addItem(product, color, qty)}>
-                Add to Cart — {currency?.symbol || 'Rs'} {convert(product.price * qty).toFixed(2)}
+                Add to Cart - {currency?.symbol || 'Rs'} {convert(product.price * qty).toFixed(2)}
               </button>
             </div>
 

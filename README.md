@@ -1,9 +1,9 @@
-# Hooked — Full Stack Crochet Store (Islamabad, Pakistan, ships worldwide)
+# Hooked - Full Stack Crochet Store (Islamabad, Pakistan, ships worldwide)
 
 Two projects:
 
-- **`hooked/`** — the React storefront (Vite + React Router), coquette pink/blue themed with crochet motifs (hooks, scissors, stitches) throughout
-- **`hooked-backend/`** — the Node/Express + PostgreSQL API (products, cart, orders, customer accounts, currency, admin)
+- **`hooked/`** - the React storefront (Vite + React Router), coquette pink/blue themed with crochet motifs (hooks, scissors, stitches) throughout
+- **`hooked-backend/`** - the Node/Express + PostgreSQL API (products, cart, orders, customer accounts, currency, admin)
 
 ## 1. Set up the database
 
@@ -17,7 +17,7 @@ createdb hooked --owner=hooked
 ```bash
 cd hooked-backend
 cp .env.example .env
-# edit .env — see "Environment variables" below
+# edit .env - see "Environment variables" below
 
 npm install
 npm run migrate        # creates all tables
@@ -41,29 +41,29 @@ npm run dev   # http://localhost:5173
 
 ### Localization
 - First-visit popup asks "where are you shopping from?" → sets country + currency, persisted in `localStorage`
-- Prices are stored in **PKR** (the store's real base currency) and converted for display using a **fixed rate table** you control (`currency_rates` table) — no live exchange-rate API dependency
-- Shipping cost is looked up per-country (`countries` table) — Pakistan gets a cheap domestic rate, other countries get flat international rates you can tune later
+- Prices are stored in **PKR** (the store's real base currency) and converted for display using a **fixed rate table** you control (`currency_rates` table) - no live exchange-rate API dependency
+- Shipping cost is looked up per-country (`countries` table) - Pakistan gets a cheap domestic rate, other countries get flat international rates you can tune later
 - Currency pill in the navbar lets shoppers reopen the popup and change their country anytime
 
 ### Customer accounts
 - Email/password signup + login (JWT, separate token namespace from admin so the two can never cross-authenticate)
 - Account page: order history + saved addresses (add/remove, default address)
-- Guest checkout is still fully supported — accounts are optional, not required
+- Guest checkout is still fully supported - accounts are optional, not required
 
 ### Checkout & payments
-- **Cash on Delivery** — only offered when shipping to Pakistan (enforced server-side, not just hidden in the UI)
-- **Card payments via Safepay** — the Pakistani gateway that lets a Pakistan-registered business accept international cards. See `hooked-backend/src/services/safepay.js`.
-  - **No live Safepay account yet?** No problem — without `SAFEPAY_API_KEY` set, the backend automatically falls back to a mock checkout session so you can build/test the entire flow. The confirmation page has a "Pay via Safepay" button that simulates a successful payment in this mode.
-  - Once you have real Safepay merchant credentials, just fill in the env vars — no code changes needed.
+- **Cash on Delivery** - only offered when shipping to Pakistan (enforced server-side, not just hidden in the UI)
+- **Card payments via Safepay** - the Pakistani gateway that lets a Pakistan-registered business accept international cards. See `hooked-backend/src/services/safepay.js`.
+  - **No live Safepay account yet?** No problem - without `SAFEPAY_API_KEY` set, the backend automatically falls back to a mock checkout session so you can build/test the entire flow. The confirmation page has a "Pay via Safepay" button that simulates a successful payment in this mode.
+  - Once you have real Safepay merchant credentials, just fill in the env vars - no code changes needed.
 - Order confirmation page (`/order/:id`) shows the itemized receipt in the customer's chosen currency
-- Order confirmation emails via **Resend** — without `RESEND_API_KEY` set, emails are logged to the console instead of sent, so this also works out of the box in development
+- Order confirmation emails via **Resend** - without `RESEND_API_KEY` set, emails are logged to the console instead of sent, so this also works out of the box in development
 
 ### Admin dashboard (`/admin`)
 - Dashboard stats, order management (status updates), custom order request tracking, product CRUD
 - Fully separate JWT auth from customer accounts
 
 ### Crochet motifs
-- A small shared icon library (`hooked/src/components/CrochetMotifs.jsx`) — scissors, crochet hook, yarn ball, stitch marks, a "snip" divider — reused across the navbar, hero, section dividers, footer, and custom order page instead of one-off icons, so the handmade feel stays consistent site-wide.
+- A small shared icon library (`hooked/src/components/CrochetMotifs.jsx`) - scissors, crochet hook, yarn ball, stitch marks, a "snip" divider - reused across the navbar, hero, section dividers, footer, and custom order page instead of one-off icons, so the handmade feel stays consistent site-wide.
 
 ## Environment variables (backend)
 
@@ -90,12 +90,12 @@ Storefront (React, Vercel)
         ↓
 Express API (Railway)
         ↓
-PostgreSQL (Railway) — products, categories, customers, addresses, carts, orders,
+PostgreSQL (Railway) - products, categories, customers, addresses, carts, orders,
                         custom_orders, currency_rates, countries, admins
 ```
 
 - Orders snapshot the product name/price at time of purchase (`order_items`), so later price or product edits don't rewrite order history.
-- `display_currency` + `display_total` on each order are a snapshot too — even if you update exchange rates later, past receipts stay accurate to what the customer actually saw.
+- `display_currency` + `display_total` on each order are a snapshot too - even if you update exchange rates later, past receipts stay accurate to what the customer actually saw.
 - Product deletion is a soft delete (`is_active = false`) so past orders keep valid references.
 
 ## Deploying
@@ -105,8 +105,8 @@ PostgreSQL (Railway) — products, categories, customers, addresses, carts, orde
 
 ## Honest gaps / next steps
 
-- **Real Safepay account**: the integration is built to spec but untested against a live merchant account — recommend a test transaction together once you have credentials.
-- **Real emails**: same story with Resend — works today via console logging, needs an API key to actually send.
-- **Admin dashboard is not yet a separate deployable app** — it currently lives at `/admin` inside the same storefront React app. If you want it on its own subdomain (e.g. `admin.hookedcrochet.com`) as originally planned, that's a follow-up: splitting it into its own Vite project is straightforward since the admin pages are already self-contained.
-- **Currency rates need manual updates** — there's no admin UI screen for editing `currency_rates` yet (the API endpoint exists: `PUT /api/currency/rates/:code`), just no button for it in the dashboard yet.
+- **Real Safepay account**: the integration is built to spec but untested against a live merchant account - recommend a test transaction together once you have credentials.
+- **Real emails**: same story with Resend - works today via console logging, needs an API key to actually send.
+- **Admin dashboard is not yet a separate deployable app** - it currently lives at `/admin` inside the same storefront React app. If you want it on its own subdomain (e.g. `admin.hookedcrochet.com`) as originally planned, that's a follow-up: splitting it into its own Vite project is straightforward since the admin pages are already self-contained.
+- **Currency rates need manual updates** - there's no admin UI screen for editing `currency_rates` yet (the API endpoint exists: `PUT /api/currency/rates/:code`), just no button for it in the dashboard yet.
 - **No password reset flow** for customer accounts yet.

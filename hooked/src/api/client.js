@@ -11,7 +11,7 @@ export const getCustomerToken = () => localStorage.getItem(CUSTOMER_TOKEN_KEY);
 export const setCustomerToken = (token) => localStorage.setItem(CUSTOMER_TOKEN_KEY, token);
 export const clearCustomerToken = () => localStorage.removeItem(CUSTOMER_TOKEN_KEY);
 
-// authType: null (public), 'admin', or 'customer' — determines which bearer token, if any, is attached
+// authType: null (public), 'admin', or 'customer' - determines which bearer token, if any, is attached
 async function request(path, options = {}, authType = null) {
   const token = authType === 'admin' ? getAdminToken() : authType === 'customer' ? getCustomerToken() : null;
   const res = await fetch(`${BASE_URL}${path}`, {
