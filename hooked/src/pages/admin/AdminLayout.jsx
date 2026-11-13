@@ -1,5 +1,6 @@
 import { NavLink, Navigate, Outlet, Link } from 'react-router-dom';
 import { useAdminAuth } from '../../context/AdminAuthContext';
+import LogoLight from '../../assets/logo-light.png'; // <-- Add this import
 import './Admin.css';
 
 export default function AdminLayout() {
@@ -15,7 +16,10 @@ export default function AdminLayout() {
   return (
     <div className="admin-shell">
       <aside className="admin-sidebar">
-        <Link to="/" className="logo"><img src="./src/assets/logo-light.png" alt="Hooked Logo" /></Link>
+        {/* Use the imported variable here */}
+        <Link to="/" className="logo">
+          <img src={LogoLight} alt="Hooked Logo" />
+        </Link>
         <nav>
           <NavLink to="/admin" end>Dashboard</NavLink>
           <NavLink to="/admin/orders">Orders</NavLink>

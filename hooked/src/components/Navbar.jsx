@@ -3,6 +3,7 @@ import { useCart } from '../context/CartContext';
 import { useCurrency } from '../context/CurrencyContext';
 import { useCustomerAuth } from '../context/CustomerAuthContext';
 import { ScissorsIcon } from './CrochetMotifs';
+import Logo from '../assets/logo.png'; // <-- Add this import
 import './Navbar.css';
 
 export default function Navbar() {
@@ -17,7 +18,10 @@ export default function Navbar() {
       </div>
       <nav className="nav">
         <div className="wrap navwrap">
-          <Link to="/" className="logo"><img src="./src/assets/logo.png" alt="Hooked Logo" /></Link>
+          {/* Use the imported variable here */}
+          <Link to="/" className="logo">
+            <img src={Logo} alt="Hooked Logo" />
+          </Link>
           <div className="navlinks">
             <NavLink to="/shop" className={({isActive}) => isActive ? 'active' : ''}>Shop</NavLink>
             <NavLink to="/custom" className={({isActive}) => isActive ? 'active' : ''}>Custom Orders</NavLink>

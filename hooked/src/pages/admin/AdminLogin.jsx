@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useAdminAuth } from '../../context/AdminAuthContext';
+import Logo from '../../assets/logo.png'; // <-- Add this import
 import './Admin.css';
 
 export default function AdminLogin() {
@@ -29,7 +30,10 @@ export default function AdminLogin() {
   return (
     <div className="admin-login-shell">
       <div className="admin-login-card">
-        <div className="logo"><img src="./src/assets/logo.png" alt="Hooked Logo" /></div>
+        {/* Use the imported variable here */}
+        <div className="logo">
+          <img src={Logo} alt="Hooked Logo" />
+        </div>
         <p className="sub">Admin dashboard sign in</p>
         <form onSubmit={handleSubmit}>
           <input name="email" type="email" placeholder="admin@hookedcrochet.com" required />
