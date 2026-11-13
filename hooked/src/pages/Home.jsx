@@ -4,7 +4,7 @@ import { motion, MotionConfig } from 'framer-motion';
 import ThreadDivider from '../components/ThreadDivider';
 import ProductCard from '../components/ProductCard';
 import PolaroidStack from '../components/PolaroidStack';
-import CategoryTiles from '../components/Categorytiles';
+import Categorytiles from '../components/Categorytiles';
 import MakerSection from '../components/MakerSection';
 import { api } from '../api/client';
 import './Home.css';
@@ -130,7 +130,7 @@ export default function Home() {
             <h2>shop by category</h2>
             <p>From your keys to your coffee table — four ways to bring a little handmade warmth into your day.</p>
           </div>
-          <CategoryTiles categories={categories} loading={loading} error={loadError} />
+          <Categorytiles categories={categories} loading={loading} error={loadError} />
         </div>
       </motion.section>
 

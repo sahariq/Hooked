@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import ProductArt from './ProductArt';
-import './CategoryTiles.css';
+import './Categorytiles.css';
 
 const container = {
   hidden: { opacity: 0 },
@@ -15,7 +15,7 @@ const item = {
 // each tile rests at a slightly different angle, like tags pinned on a board
 const TILTS = [-1.6, 1.2, -1, 1.6];
 
-export default function CategoryTiles({ categories, loading, error }) {
+export default function Categorytiles({ categories, loading, error }) {
   if (error) {
     return (
       <p className="cat-tiles-msg" role="alert">
