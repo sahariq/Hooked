@@ -63,6 +63,6 @@ export default function CategoryTiles({ categories, loading, error }) {
           </Link>
         </motion.li>
       ))}
-    </motion.ul>
+    </motion.ul> 
   );
 }

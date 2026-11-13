@@ -4,7 +4,7 @@ import { motion, MotionConfig } from 'framer-motion';
 import ThreadDivider from '../components/ThreadDivider';
 import ProductCard from '../components/ProductCard';
 import PolaroidStack from '../components/PolaroidStack';
-import CategoryTiles from '../components/CategoryTiles';
+import CategoryTiles from '../components/Categorytiles';
 import MakerSection from '../components/MakerSection';
 import { api } from '../api/client';
 import './Home.css';
@@ -13,7 +13,6 @@ import './Home.css';
 import crochetIcon from '../assets/crochet.png';
 import scissorsIcon from '../assets/scissors.png';
 import yarnIcon from '../assets/yarn.png';
-import packageIcon from '../assets/package.png';
 import heroIcon from '../assets/hero.png';
 
 // Animation variants
