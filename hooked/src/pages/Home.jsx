@@ -111,23 +111,7 @@ export default function Home() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.7, ease: "easeOut" }}
           >
-            <motion.div 
-              className="hero-tag tag-1"
-              whileHover={{ scale: 1.05, rotate: -2 }}
-              transition={{ duration: 0.2 }}
-            >
-              <img src={packageIcon} alt="" aria-hidden="true" style={{ width: 16, height: 16, marginRight: 6 }} />
-              made to order
-            </motion.div>
             <PolaroidStack />
-            <motion.div 
-              className="hero-tag tag-2"
-              whileHover={{ scale: 1.05, rotate: 3 }}
-              transition={{ duration: 0.2 }}
-            >
-              <img src={packageIcon} alt="" aria-hidden="true" style={{ width: 16, height: 16, marginRight: 6 }} />
-              ships worldwide
-            </motion.div>
           </motion.div>
         </div>
         <ThreadDivider />

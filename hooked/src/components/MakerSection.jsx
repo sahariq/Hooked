@@ -20,9 +20,11 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
 };
 
-export default function MakerSection() {
+/** variant="home": links on to the About page. variant="about": used as the About page hero, links on to the shop. */
+export default function MakerSection({ variant = 'home' }) {
+  const isAbout = variant === 'about';
   return (
-    <section className="section maker">
+    <section className={`section maker${isAbout ? ' is-about' : ''}`}>
       <div className="wrap">
         <div className="maker-grid">
           {/* ───────── visual ───────── */}
@@ -118,7 +120,11 @@ export default function MakerSection() {
             </motion.p>
 
             <motion.div variants={fadeUp} className="maker-cta">
-              <Link to="/about" className="btn btn-solid">More About Hooked →</Link>
+              {isAbout ? (
+                <Link to="/shop" className="btn btn-solid">Shop the Store →</Link>
+              ) : (
+                <Link to="/about" className="btn btn-solid">More About Hooked →</Link>
+              )}
               <Link to="/custom" className="btn">Start a Custom Order</Link>
             </motion.div>
           </motion.div>

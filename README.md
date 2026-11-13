@@ -1,6 +1,6 @@
 # Hooked - Full Stack Crochet Store (Islamabad, Pakistan, ships worldwide)
 
-Two projects:
+Two projects: 
 
 - **`hooked/`** - the React storefront (Vite + React Router), coquette pink/blue themed with crochet motifs (hooks, scissors, stitches) throughout
 - **`hooked-backend/`** - the Node/Express + PostgreSQL API (products, cart, orders, customer accounts, currency, admin)

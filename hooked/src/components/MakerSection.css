@@ -2,6 +2,10 @@
   position: relative;
   overflow: hidden; /* floating decorations never cause sideways scrolling */
 }
+.maker.is-about {
+  background: var(--cream-2);
+  border-bottom: 1px solid var(--line);
+}
 .maker-grid {
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
