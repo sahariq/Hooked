@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-Then open the local URL shown in your terminal (usually http://localhost:5173).
+Then open the local URL shown in your terminal (usually http://localhost:3000).
 
 ## Build for production
 

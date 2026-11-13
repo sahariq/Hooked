@@ -41,4 +41,4 @@ export function bankDetails() {
 }
 
 export const frontendUrl = () =>
-  (process.env.FRONTEND_URL || (process.env.CORS_ORIGIN || 'http://localhost:5173').split(',')[0]).trim().replace(/\/$/, '');
+  (process.env.FRONTEND_URL || (process.env.CORS_ORIGIN || 'http://localhost:3000').split(',')[0]).trim().replace(/\/$/, '');

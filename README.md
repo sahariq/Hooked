@@ -34,7 +34,7 @@ cp .env.example .env
 # VITE_API_URL should point at your backend
 
 npm install
-npm run dev   # http://localhost:5173
+npm run dev   # http://localhost:3000
 ```
 
 ## What's new in this build

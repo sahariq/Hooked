@@ -21,7 +21,7 @@ export async function createCheckoutSession(order) {
     console.warn('[safepay] No SAFEPAY_API_KEY set - returning a mock checkout session.');
     return {
       mock: true,
-      checkoutUrl: `${process.env.CORS_ORIGIN?.split(',')[0] || 'http://localhost:5173'}/order/${order.id}/mock-pay`,
+      checkoutUrl: `${process.env.CORS_ORIGIN?.split(',')[0] || 'http://localhost:3000'}/order/${order.id}/mock-pay`,
       tracker: `mock_${order.order_number}`,
     };
   }
