@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import { motion, MotionConfig } from 'framer-motion';
 import { api } from '../api/client';
 import yarnIcon from '../assets/yarn.png';
-import crochetIcon from '../assets/crochet.png';
-import scissorsIcon from '../assets/scissors.png';
 import './CustomOrders.css';
 
 const MAX_MESSAGE = 4000; // backend accepts up to 5000 incl. the reference link we append
@@ -96,9 +94,6 @@ export default function CustomOrders() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease: 'easeOut' }}
           >
-            <img className="co-float f1" src={yarnIcon} alt="" aria-hidden="true" />
-            <img className="co-float f2" src={crochetIcon} alt="" aria-hidden="true" />
-            <img className="co-float f3" src={scissorsIcon} alt="" aria-hidden="true" />
 
             <div className="co-sticker" aria-hidden="true">
               <span>reply in</span>
@@ -106,7 +101,7 @@ export default function CustomOrders() {
               <span>business days</span>
             </div>
 
-            <span className="mono">♡ custom orders ♡</span>
+            <span className="mono">♡ custom orders </span>
             <h1>let&rsquo;s design something<br /><span className="accent">just for you.</span></h1>
             <p>
               From a keychain of your pet to a whole matching set for a wedding party &mdash; if you can describe it,
@@ -157,7 +152,7 @@ export default function CustomOrders() {
                 <span className="mono">good to know</span>
                 <ul>
                   {/* ⚠ confirm these before launch: the site otherwise shows prices in Rs */}
-                  <li>Most custom pieces run $20–$80 depending on size &amp; detail</li>
+          
                   <li>Rush orders may be available for an added fee</li>
                   <li>I&rsquo;ll always confirm pricing before starting your piece</li>
                 </ul>
@@ -192,7 +187,7 @@ export default function CustomOrders() {
                   <div className="co-row">
                     <label>
                       <span>Your name</span>
-                      <input type="text" name="name" required maxLength={100} autoComplete="name" placeholder="Jamie Rivera" />
+                      <input type="text" name="name" required maxLength={100} autoComplete="name" placeholder="Jane Doe" />
                     </label>
                     <label>
                       <span>Email</span>

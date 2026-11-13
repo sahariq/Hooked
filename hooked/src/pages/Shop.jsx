@@ -104,8 +104,6 @@ export default function Shop() {
               >
                 <ProductArt icon={activeCat?.icon || 'star'} stroke="var(--ink)" size="58%" />
               </motion.span>
-              <img className="shop-float s1" src={yarnIcon} alt="" />
-              <img className="shop-float s2" src={crochetIcon} alt="" />
               {showCount && (
                 <span className="shop-count-sticker">
                   <strong>{count}</strong>

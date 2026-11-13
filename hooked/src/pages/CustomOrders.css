@@ -1,6 +1,6 @@
 /* ───────────── hero banner ───────────── */
 .co-hero {
-  background: var(--cream-2);
+  background: #f0e3e7;
   border-bottom: 1px solid var(--line);
   padding-bottom: 56px;
 }

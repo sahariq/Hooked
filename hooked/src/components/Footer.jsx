@@ -38,7 +38,7 @@ export default function Footer() {
         </div>
         <div className="foot-bottom">
           <span>© 2026 Hooked. All rights reserved.</span>
-          <span>made with 🧶 and a lot of coffee</span>
+          <span>made with yarn and a lot of coffee</span>
         </div>
       </div>
     </footer>

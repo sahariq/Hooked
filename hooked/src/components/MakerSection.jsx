@@ -56,11 +56,6 @@ export default function MakerSection({ variant = 'home' }) {
               )}
             </div>
 
-            {/* floating crochet bits */}
-            <img className="maker-float f1" src={yarnIcon} alt="" aria-hidden="true" />
-            <img className="maker-float f2" src={crochetIcon} alt="" aria-hidden="true" />
-            <img className="maker-float f3" src={scissorsIcon} alt="" aria-hidden="true" />
-
             {/* spinning text badge */}
             <div className="maker-badge" aria-hidden="true">
               <svg viewBox="0 0 120 120" className="maker-badge-ring">
@@ -74,12 +69,6 @@ export default function MakerSection({ variant = 'home' }) {
                 </text>
               </svg>
               <span className="maker-badge-heart">♡</span>
-            </div>
-
-            {/* sticky note */}
-            <div className="maker-note">
-              <span className="mono">currently on my hook</span>
-              <p>{CURRENTLY}</p>
             </div>
 
             {/* quote card */}
@@ -114,9 +103,6 @@ export default function MakerSection({ variant = 'home' }) {
 
             <motion.p variants={fadeUp} className="maker-sign">
               with love, {MAKER_NAME}
-              <svg viewBox="0 0 120 12" aria-hidden="true">
-                <path d="M2 7 C 14 1, 22 11, 34 6 S 54 2, 66 7 S 88 11, 100 5 S 114 4, 118 6" />
-              </svg>
             </motion.p>
 
             <motion.div variants={fadeUp} className="maker-cta">

@@ -70,15 +70,6 @@ export default function Home() {
       >
         <div className="hero-inner">
           <motion.div variants={fadeUp}>
-            <motion.div 
-              className="eyebrow"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-            >
-              <img src={heroIcon} alt="" aria-hidden="true" style={{ width: 16, height: 16, marginRight: 8 }} />
-              now taking summer custom orders
-            </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
