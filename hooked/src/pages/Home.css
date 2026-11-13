@@ -162,3 +162,28 @@
   background: var(--cherry);
   opacity: 0.5;
 }
+
+.stitch-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 640px;
+  margin: 8px auto;
+  padding: 0 24px;
+  color: var(--cherry-dark, #c4577a);
+}
+.stitch-divider-line {
+  flex: 1;
+  border-top: 2px dashed currentColor;
+  opacity: 0.45;
+}
+.stitch-divider-scissors { flex: none; }
+.stitch-divider-heart {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #F6D9E4;
+}

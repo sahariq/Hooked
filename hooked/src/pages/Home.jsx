@@ -1,19 +1,25 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, MotionConfig } from 'framer-motion';
+import { Heart, Scissors } from 'lucide-react';
 import ThreadDivider from '../components/ThreadDivider';
 import ProductCard from '../components/ProductCard';
 import PolaroidStack from '../components/PolaroidStack';
 import Categorytiles from '../components/Categorytiles';
 import MakerSection from '../components/MakerSection';
+import useSeo from '../hooks/useSeo';
 import { api } from '../api/client';
 import './Home.css';
 
-// Import SVG/PNG assets
-import crochetIcon from '../assets/crochet.png';
-import scissorsIcon from '../assets/scissors.png';
-import yarnIcon from '../assets/yarn.png';
-import heroIcon from '../assets/hero.png';
+/* ✏️ SEO ───────────────────────────────────────────────────
+   Title: keep under ~60 characters. Description: keep under ~155 characters.
+   ─────────────────────────────────────────────────────────── */
+const SEO = {
+  title: 'Hooked · Handmade Crochet Keychains, Coasters & Amigurumi',
+  description:
+    'Shop handmade crochet keychains, coasters, amigurumi and softies, made to order in small batches in Islamabad and shipped worldwide. Custom orders welcome.',
+  siteName: 'Hooked',
+};
 
 // Animation variants
 const fadeUp = {
@@ -32,11 +38,69 @@ const staggerContainer = {
   }
 };
 
+// Small decorative-heart eyebrow label: screen readers skip the hearts and read only the words.
+function Eyebrow({ children, style }) {
+  return (
+    <span className="mono" style={style}>
+      <span aria-hidden="true">♡</span> {children} <span aria-hidden="true">♡</span>
+    </span>
+  );
+}
+
+// Section divider: a "cut along the dotted line" stitch with a little heart in the middle.
+function StitchDivider() {
+  return (
+    <div className="stitch-divider" aria-hidden="true">
+ 
+      <span className="stitch-divider-line" />
+      <span className="stitch-divider-heart">
+        <Heart size={16} strokeWidth={2} />
+      </span>
+      <span className="stitch-divider-line" />
+    </div>
+  );
+}
+
 export default function Home() {
   const [categories, setCategories] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState(false);
+
+  // Page title, meta tags and structured data (see hooks/useSeo.js)
+  const origin = typeof window !== 'undefined' ? window.location.origin : '';
+  useSeo({
+    title: SEO.title,
+    description: SEO.description,
+    path: '/',
+    siteName: SEO.siteName,
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'WebSite',
+          '@id': `${origin}/#website`,
+          url: `${origin}/`,
+          name: SEO.siteName,
+          description: SEO.description,
+          publisher: { '@id': `${origin}/#organization` },
+        },
+        {
+          '@type': 'Organization',
+          '@id': `${origin}/#organization`,
+          name: SEO.siteName,
+          url: `${origin}/`,
+          description: 'Handmade-to-order crochet: coasters, keychains and amigurumi.',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Islamabad',
+            addressCountry: 'PK',
+          },
+          areaServed: 'Worldwide',
+        },
+      ],
+    },
+  });
 
   useEffect(() => {
     let cancelled = false; // avoid setState after unmount
@@ -110,6 +174,7 @@ export default function Home() {
       {/* ===== CATEGORIES ===== */}
       <motion.section 
         className="section"
+        aria-labelledby="home-categories-title"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
@@ -117,26 +182,21 @@ export default function Home() {
       >
         <div className="wrap">
           <div className="section-head">
-            <span className="mono">♡ what we make ♡</span>
-            <h2>shop by category</h2>
+            <Eyebrow>what we make</Eyebrow>
+            <h2 id="home-categories-title">shop by category</h2>
             <p>From your keys to your coffee table — four ways to bring a little handmade warmth into your day.</p>
           </div>
           <Categorytiles categories={categories} loading={loading} error={loadError} />
         </div>
       </motion.section>
 
-      {/* ===== STITCH ROW DIVIDER ===== */}
-      <div className="stitch-row-divider">
-        <img src={yarnIcon} alt="" aria-hidden="true" style={{ width: 30, height: 30 }} />
-        <span className="divider-line"></span>
-        <img src={scissorsIcon} alt="" aria-hidden="true" style={{ width: 30, height: 30 }} />
-        <span className="divider-line"></span>
-        <img src={crochetIcon} alt="" aria-hidden="true" style={{ width: 30, height: 30 }} />
-      </div>
+      {/* ===== STITCH DIVIDER ===== */}
+      <StitchDivider />
 
       {/* ===== PRODUCTS ===== */}
       <motion.section 
         className="section shop-preview"
+        aria-labelledby="home-favorites-title"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
@@ -144,8 +204,8 @@ export default function Home() {
       >
         <div className="wrap">
           <div className="section-head">
-            <span className="mono">♡ fresh off the hook ♡</span>
-            <h2>shop our favorites</h2>
+            <Eyebrow>fresh off the hook</Eyebrow>
+            <h2 id="home-favorites-title">shop our favorites</h2>
             <p>Best-sellers and new arrivals, restocked in small batches every couple of weeks.</p>
           </div>
           <motion.div 
@@ -174,6 +234,7 @@ export default function Home() {
       {/* ===== CUSTOM ORDERS ===== */}
       <motion.section 
         className="section"
+        aria-labelledby="home-custom-title"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
@@ -191,7 +252,7 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              <h2>have something in mind? <br />let's make it together.</h2>
+              <h2 id="home-custom-title">have something in mind? <br />let's make it together.</h2>
               <p>Send a reference photo, pick your colors, and I'll turn it into a one-of-a-kind piece — gifts, portraits of your pet, matching keychains for a wedding party, anything you can dream up.</p>
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -238,6 +299,7 @@ export default function Home() {
       {/* ===== NEWSLETTER ===== */}
       <motion.section 
         className="newsletter"
+        aria-labelledby="home-newsletter-title"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
@@ -251,8 +313,8 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="mono" style={{ color: 'var(--cherry-dark)' }}>♡ stay in the loop ♡</span>
-            <h2>be the first to know</h2>
+            <Eyebrow style={{ color: 'var(--cherry-dark)' }}>stay in the loop</Eyebrow>
+            <h2 id="home-newsletter-title">be the first to know</h2>
             <p>New drops, restocks, and the occasional yarn ramble — straight to your inbox.</p>
             <motion.form 
               className="news-form" 
@@ -260,7 +322,14 @@ export default function Home() {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
             >
-              <input type="email" placeholder="your email address" required />
+              <input
+                type="email"
+                name="email"
+                autoComplete="email"
+                aria-label="Email address"
+                placeholder="your email address"
+                required
+              />
               <motion.button 
                 type="submit" 
                 className="btn btn-solid"
