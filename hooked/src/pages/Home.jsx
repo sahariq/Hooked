@@ -4,7 +4,7 @@ import { motion, MotionConfig } from 'framer-motion';
 import ThreadDivider from '../components/ThreadDivider';
 import ProductCard from '../components/ProductCard';
 import PolaroidStack from '../components/PolaroidStack';
-import CategoryTiles from '../components/Categorytiles';
+import CategoryTiles from '../components/CategoryTiles';
 import MakerSection from '../components/MakerSection';
 import { api } from '../api/client';
 import './Home.css';

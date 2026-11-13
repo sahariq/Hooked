@@ -9,7 +9,7 @@
 /* every second tile sits lower for a playful, uneven rhythm */
 .cat-tiles > li:nth-child(even) {
   margin-top: 30px;
-}
+} 
 
 .cat-tile {
   position: relative;
